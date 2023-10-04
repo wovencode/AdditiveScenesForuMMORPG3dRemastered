@@ -1,6 +1,7 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.SceneManagement;
+using Tymski;
 using Fhiz;
 
 namespace Fhiz {
@@ -16,7 +17,7 @@ namespace Fhiz {
 		public AdditiveSceneManager additiveSceneManager;
 
 		[Tooltip("Assign the additive scene to load for this zone")]
-		public UnityScene additiveScene;
+		public SceneReference additiveScene;
 
 		[Header("Debug")]
 		public bool isActive = true;
@@ -55,7 +56,7 @@ namespace Fhiz {
 
 			if (player && player.isServer)
 				if (NetworkServer.active)
-					additiveSceneManager.LoadAdditiveSceneAsync(additiveScene.SceneName, player);
+					additiveSceneManager.LoadAdditiveSceneAsync(additiveScene.ScenePath, player);
 
 		}
 	
@@ -77,7 +78,7 @@ namespace Fhiz {
 
 			if (player && player.isServer)
 				if (NetworkServer.active)
-					additiveSceneManager.UnloadAdditiveSceneAsync(additiveScene.SceneName, player);
+					additiveSceneManager.UnloadAdditiveSceneAsync(additiveScene.ScenePath, player);
 				
 		}
 

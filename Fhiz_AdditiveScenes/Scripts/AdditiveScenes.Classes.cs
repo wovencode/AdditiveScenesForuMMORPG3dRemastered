@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Mirror;
 using System;
 using System.Linq;
+using Tymski;
 using Fhiz;
 
 namespace Fhiz {
@@ -17,7 +18,7 @@ namespace Fhiz {
 	{
 		
 		[Tooltip("Drag and drop a scene object from your project here")]
-		public UnityScene scene;
+		public SceneReference scene;
 
 		[Tooltip("Drag and drop a collider object from main scene hierarchy here")]
 		public Collider collider;   // required for bounds check
@@ -33,7 +34,7 @@ namespace Fhiz {
 		{
 			get
 			{
-				return scene.SceneName;
+				return scene.ScenePath;
 			}
 		}
 
